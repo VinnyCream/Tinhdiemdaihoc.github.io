@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tính Điểm Môn Học Phần</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-image: url('Planet_BG.jpg');
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>📠Tính Điểm Môn Học Phần</h1>
+
+        <div id="intro-screen" class="screen">
+            <h3>🤩<i>Chào mừng bạn đến với công cụ tính điểm<br>các môn học phần Đại Học!</i></h3>
+            <u style="color:red;"><strong>⚠️Lưu ý:</strong></u> <strong>Điểm Quá trình là điểm kết quả trên lớp của bạn, Nếu điểm Tổng của bạn <span style="color:red;">≥ 4</span> thì bạn qua môn.</strong>
+            <h2></h2>
+            <button class="btn" data-weight="5:5">Tỷ lệ (5:5) và (2:3:5)</button>
+            <button class="btn" data-weight="4:6">Tỷ lê (4:6)</button>
+            <button class="btn" data-weight="3:7">Tỷ lệ (3:7)</button>
+        </div>
+
+        <div id="selection-55-screen" class="screen" style="display: none;">
+            <h2>Chọn Loại Tỷ lệ Điểm 5:5</h2>
+            <button class="btn" data-weight="5:5-standard">Tỷ lệ Chuẩn 5:5 (Quá trình - Cuối kỳ)</button>
+            <button class="btn" data-weight="5:5-235">Tỷ lệ 2:3:5 (Lý thuyết - Thực hành - Cuối kỳ)</button>
+            <button class="btn back-btn">Quay trở về</button>
+        </div>
+
+        <div id="calculator-screen" class="screen" style="display: none;">
+            <h2 id="calculator-title">Nhập Điểm</h2>
+
+            <div id="inputs-55-standard" class="input-group" style="display: none;">
+                <label for="diem-qua-trinh-55">Điểm Quá trình (0-10) - 50%:</label>
+                <input type="number" id="diem-qua-trinh-55" min="0" max="10" step="0.1">
+
+                <label for="diem-cuoi-ky-55">Điểm Cuối kỳ (0-10) - 50%:</label>
+                <input type="number" id="diem-cuoi-ky-55" min="0" max="10" step="0.1">
+            </div>
+
+             <div id="inputs-55-235" class="input-group" style="display: none;">
+                <label for="diem-ly-thuyet">Điểm Lý thuyết (0-10) - 20%:</label>
+                <input type="number" id="diem-ly-thuyet" min="0" max="10" step="0.1">
+
+                <label for="diem-thuc-hanh">Điểm Thực hành (0-10) - 30%:</label>
+                <input type="number" id="diem-thuc-hanh" min="0" max="10" step="0.1">
+
+                <label for="diem-cuoi-ky-235">Điểm Cuối kỳ (0-10) - 50%:</label>
+                <input type="number" id="diem-cuoi-ky-235" min="0" max="10" step="0.1">
+            </div>
+
+             <div id="inputs-46" class="input-group" style="display: none;">
+                <label for="diem-qua-trinh-46">Điểm Quá trình (0-10) - 40%:</label>
+                <input type="number" id="diem-qua-trinh-46" min="0" max="10" step="0.1">
+
+                <label for="diem-cuoi-ky-46">Điểm Cuối kỳ (0-10) - 60%:</label>
+                <input type="number" id="diem-cuoi-ky-46" min="0" max="10" step="0.1">
+            </div>
+
+             <div id="inputs-37" class="input-group" style="display: none;">
+                <label for="diem-qua-trinh-37">Điểm Quá trình (0-10) - 30%:</label>
+                <input type="number" id="diem-qua-trinh-37" min="0" max="10" step="0.1">
+
+                <label for="diem-cuoi-ky-37">Điểm Cuối kỳ (0-10) - 70%:</label>
+                <input type="number" id="diem-cuoi-ky-37" min="0" max="10" step="0.1">
+            </div>
+
+            <button class="btn calculate-btn">Tính Điểm</button>
+
+            <div id="result" class="result"></div>
+
+            <button class="btn reset-btn">Reset Điểm</button>
+            <button class="btn back-btn">Quay trở về</button>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
