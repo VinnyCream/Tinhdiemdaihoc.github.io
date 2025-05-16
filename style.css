@@ -57,7 +57,7 @@ p {
 .reset-btn {
     background-color: #dc3545; /* Màu đỏ cho nút reset */
     color: white;
-    margin-top: 20px; /* Khoảng cách với kết quả */
+    margin-top: 20px; 
     border-radius: 10px;
 }
 
@@ -70,7 +70,7 @@ p {
 
 .input-group {
     margin-bottom: 15px;
-    text-align: left; /* Căn trái label và input */
+    text-align: left; 
 }
 
 .input-group label {
