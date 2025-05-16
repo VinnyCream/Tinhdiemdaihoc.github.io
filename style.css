@@ -81,7 +81,7 @@ p {
 }
 
 .input-group input[type="number"] {
-    width: calc(100% - 22px); /* Chiều rộng input trừ padding và border */
+    width: calc(100% - 22px); 
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -93,10 +93,9 @@ p {
     padding: 15px;
     border-radius: 4px;
     font-size: 18px;
-    font-weight: bold; /* Giữ in đậm cho toàn bộ khối kết quả */
-    min-height: 1em; /* Giữ chỗ cho kết quả */
-    /* color: #333; */ /* Xóa hoặc ghi đè màu xám mặc định nếu có */
-    color: black; /* **Thêm: Chữ màu đen cho toàn bộ khối kết quả** */
+    font-weight: bold; 
+    min-height: 1em; 
+    color: black;
 }
 
 .result.dau {
