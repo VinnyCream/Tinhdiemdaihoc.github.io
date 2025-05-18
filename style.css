@@ -1,5 +1,5 @@
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -27,8 +27,8 @@ h1, h2 {
 }
 
 p {
-    margin-bottom: 20px; 
-    color: #666; 
+    margin-bottom: 20px;
+    color: #666;
 }
 
 .btn {
@@ -41,36 +41,34 @@ p {
     cursor: pointer;
     font-size: 16px;
     transition: background-color 0.3s ease;
+    text-decoration: none;
+    color: white;
 }
 
 .btn:hover {
     opacity: 0.9;
 }
 
-/* Màu sắc cho các loại nút */
 .btn:not(.reset-btn):not(.back-btn) {
-    background-color: #bb7ade; /* Màu xanh dương cho các nút chọn và tính toán */
+    background-color: #bb7ade;
     color: white;
-    border-radius: 10px;
 }
 
 .reset-btn {
-    background-color: #dc3545; /* Màu đỏ cho nút reset */
+    background-color: #dc3545;
     color: white;
-    margin-top: 20px; 
-    border-radius: 10px;
+    margin-top: 20px;
 }
 
 .back-btn {
-    background-color: #6c757d; /* Màu xám cho nút quay lại */
+    background-color: #6c757d;
     color: white;
     margin-top: 10px;
-    border-radius: 10px;
 }
 
 .input-group {
     margin-bottom: 15px;
-    text-align: left; 
+    text-align: left;
 }
 
 .input-group label {
@@ -80,42 +78,94 @@ p {
     color: #555;
 }
 
-.input-group input[type="number"] {
-    width: calc(100% - 22px); 
+input[type="number"] {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 16px;
+    box-sizing: border-box;
 }
+
+
+.input-group input[type="number"] {
+     width: calc(100% - 0px); 
+}
+
+.gpa-subject-inputs {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    gap: 10px; 
+    flex-wrap: wrap;
+    border: 1px solid #eee;
+    padding: 10px; 
+    border-radius: 4px;
+    background-color: #f9f9f9;
+}
+
+.gpa-subject-inputs label {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 0;
+    flex-shrink: 0;
+    width: 80px; 
+}
+
+.gpa-subject-inputs .score-input {
+    flex-grow: 2;
+    min-width: 80px; 
+}
+
+.gpa-subject-inputs .credit-input {
+    flex-grow: 1;
+    max-width: 80px; 
+     min-width: 50px; 
+}
+
 
 .result {
     margin-top: 20px;
     padding: 15px;
     border-radius: 4px;
     font-size: 18px;
-    font-weight: bold; 
-    min-height: 1em; 
+    min-height: 1em;
     color: black;
+    text-align: left;
+    word-break: break-word; 
 }
 
 .result.dau {
-    background-color: #d4edda; /* Nền xanh nhạt */
-/* Màu chữ xanh đậm cho dòng "Qua môn" */
-    border: 3px solid #c3e6cb;
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
 }
 
 .result.rot {
-    background-color: #f8d7da; /* Nền đỏ nhạt */
-/* Màu chữ đỏ đậm cho dòng "Rớt môn" */
-    border: 3px solid #f5c6cb;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
 }
 
 .result p {
-    margin: 5px 0; 
-    font-weight: normal; 
+    margin: 5px 0;
+    font-weight: normal;
+    line-height: 1.5;
 }
 
+.result p strong {
+    font-weight: bold;
+}
 
 .result p strong {
-    font-weight: bold; 
+    font-weight: bold; /* Giữ in đậm cho chữ "Điểm Tổng" */
+}
+
+.screen {
+    display: none;
+}
+
+.screen {
+    display: none;
+}
+
+.screen:not([style*="display: none"]) {
+     display: block;
 }
