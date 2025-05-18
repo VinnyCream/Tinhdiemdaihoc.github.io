@@ -4,8 +4,7 @@
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📠</text></svg>" type="image/svg+xml">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tính Điểm Môn Học Phần</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Tính Điểm Môn Học Phần & GPA</title> <link rel="stylesheet" href="style.css">
     <style>
         body {
             background-image: url('Planet_BG.jpg');
@@ -18,18 +17,16 @@
 <body>
 
     <div class="container">
-        <h1>📠Tính Điểm Môn Học Phần</h1>
-
-        <div id="intro-screen" class="screen">
+        <h1>📠Công cụ tính điểm Đại Học</h1> <div id="intro-screen" class="screen">
             <h3>🤩<i>Chào mừng bạn đến với công cụ tính điểm<br>các môn học phần Đại Học!</i></h3>
-            <u style="color:red;"><strong>⚠️Lưu ý:</strong></u> <strong>Điểm Quá trình là điểm kết quả trên lớp của bạn, Nếu điểm Tổng của bạn <span style="color:red;">≥ 4</span> thì bạn qua môn.</strong>
-            <h2></h2>
-            <button class="btn" data-weight="5:5">Tỷ lệ (5:5) và (2:3:5)</button>
-            <button class="btn" data-weight="4:6">Tỷ lê (4:6)</button>
-            <button class="btn" data-weight="3:7">Tỷ lệ (3:7)</button>
+            <u style="color:red;"><strong>⚠️Lưu ý:</strong></u> <strong>Đối với tính điểm môn học phần, nếu điểm Tổng của bạn <span style="color:red;">≥ 4</span> thì bạn qua môn.</strong> <h2></h2>
+            <button class="btn" data-weight="5:5">Tính điểm môn học phần (Tỷ lệ 5:5 và 2:3:5)</button>
+            <button class="btn" data-weight="4:6">Tính điểm môn học phần (Tỷ lệ 4:6)</button>
+            <button class="btn" data-weight="3:7">Tính điểm môn học phần (Tỷ lệ 3:7)</button>
+            <button class="btn" id="gpa-intro-btn">Tính GPA của học kỳ</button>
+
             <p><i>Nếu bạn muốn đóng góp hoặc feedback lại cho mình thì hãy bấm vào đường link phía dưới nhá!</i></p>
-            <h4><a href="https://forms.gle/i6m1dXvFFPcQHySp8">-> Khảo sát và đóng góp <-</a></h4>
-        </div>
+            <h4><a href="https://forms.gle/i6m1dXvFFPcQHySp8" target="_blank">-> Khảo sát và đóng góp <-</a></h4> </div>
 
         <div id="selection-55-screen" class="screen" style="display: none;">
             <h2>Chọn Loại Tỷ lệ Điểm 5:5</h2>
@@ -39,7 +36,7 @@
         </div>
 
         <div id="calculator-screen" class="screen" style="display: none;">
-            <h2 id="calculator-title">Nhập Điểm</h2>
+            <h2 id="calculator-title">Nhập Điểm Môn Học Phần</h2>
 
             <div id="inputs-55-standard" class="input-group" style="display: none;">
                 <label for="diem-qua-trinh-55">Điểm Quá trình (0-10) - 50%:</label>
@@ -49,7 +46,7 @@
                 <input type="number" id="diem-cuoi-ky-55" min="0" max="10" step="0.1">
             </div>
 
-             <div id="inputs-55-235" class="input-group" style="display: none;">
+            <div id="inputs-55-235" class="input-group" style="display: none;">
                 <label for="diem-ly-thuyet">Điểm Chuyên cần (0-10) - 20%:</label>
                 <input type="number" id="diem-ly-thuyet" min="0" max="10" step="0.1">
 
@@ -60,7 +57,7 @@
                 <input type="number" id="diem-cuoi-ky-235" min="0" max="10" step="0.1">
             </div>
 
-             <div id="inputs-46" class="input-group" style="display: none;">
+            <div id="inputs-46" class="input-group" style="display: none;">
                 <label for="diem-qua-trinh-46">Điểm Quá trình (0-10) - 40%:</label>
                 <input type="number" id="diem-qua-trinh-46" min="0" max="10" step="0.1">
 
@@ -68,7 +65,7 @@
                 <input type="number" id="diem-cuoi-ky-46" min="0" max="10" step="0.1">
             </div>
 
-             <div id="inputs-37" class="input-group" style="display: none;">
+            <div id="inputs-37" class="input-group" style="display: none;">
                 <label for="diem-qua-trinh-37">Điểm Quá trình (0-10) - 30%:</label>
                 <input type="number" id="diem-qua-trinh-37" min="0" max="10" step="0.1">
 
@@ -76,12 +73,31 @@
                 <input type="number" id="diem-cuoi-ky-37" min="0" max="10" step="0.1">
             </div>
 
-            <button class="btn calculate-btn">Tính Điểm</button>
+            <button class="btn calculate-btn">Tính Điểm Môn Học Phần</button> <div id="result" class="result"></div>
 
-            <div id="result" class="result"></div>
+            <button class="btn reset-btn">Reset</button> <button class="btn back-btn">Quay trở về</button>
+        </div>
 
-            <button class="btn reset-btn">Reset Điểm</button>
+        <div id="gpa-subject-count-screen" class="screen" style="display: none;">
+            <h2>Tính GPA Học Kỳ</h2>
+            <p>Vui lòng nhập tổng số môn học phần bạn đã học trong học kỳ này:</p>
+            <div class="input-group">
+                <label for="num-subjects">Số lượng môn học:</label>
+                <input type="number" id="num-subjects" min="1" value="1"> </div>
+            <button class="btn" id="generate-gpa-inputs-btn">Tiếp theo</button>
             <button class="btn back-btn">Quay trở về</button>
+        </div>
+
+        <div id="gpa-calculator-screen" class="screen" style="display: none;">
+            <h2>Nhập Điểm và Tín Chỉ (Thang 4)</h2>
+
+            <div id="gpa-inputs-container">
+                </div>
+
+            <button class="btn" id="calculate-gpa-btn">Tính GPA</button>
+            <div id="gpa-result" class="result" style="margin-top: 20px;"></div>
+            <button class="btn reset-btn" id="reset-gpa-btn">Reset</button> 
+            <button class="btn back-btn" id="back-to-gpa-count-btn">Quay trở về</button> 
         </div>
 
     </div>
