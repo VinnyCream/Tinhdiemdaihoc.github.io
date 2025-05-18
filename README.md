@@ -1,7 +1,7 @@
 # ❤️Mô tả:
 
 <h3><i>-> Là một website tính điểm học phần dành cho các sinh viên Đại học.</i></h3>
-<p>-> <a href="https://vinnycream.github.io/Tinhdiemdaihoc.github.io/">Đi đến Website TinhDiemHocPhan</a></p>
+<p>-> <a href="https://vinnycream.github.io/Tinhdiemdaihoc.github.io/">Đi đến Website TinhDiemDaiHoc</a></p>
 
 - Chọn tỷ lệ điểm để tính
 - Nhanh gọn lẹ
