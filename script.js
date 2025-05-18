@@ -434,5 +434,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Ngăn chặn menu chuột phải xuất hiện mà không hiển thị thông báo
+document.addEventListener('contextmenu', (event) => {
+    event.preventDefault(); // Chỉ ngăn chặn hành động mặc định
+});
+
     showScreen(introScreen);
 });
