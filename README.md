@@ -8,8 +8,18 @@
 - Thiết kế thân thiện
 - Open Source
 
+# 💥Update v1.0.1:
+- <strong>Tính GPA của Học kỳ</strong>
+- <strong>Tính Điểm trung bình học kỳ</strong>
+- <strong>Tính Điểm trung bình tích lũy</strong>
+- <strong>Tính Xếp loại</strong>
+
 # 🟢Tính năng:
 - <strong>Tính Tổng điểm trung bình môn học phần</strong>✔️
 - <strong>Tính Thang điểm 10</strong>✔️
 - <strong>Thang điểm 4</strong>✔️
 - <strong>Thang điểm chữ</strong>✔️
+- <strong>Tính GPA của Học kỳ</strong>✔️
+- <strong>Tính Điểm trung bình học kỳ</strong>✔️
+- <strong>Tính Điểm trung bình tích lũy</strong>✔️
+- <strong>Tính Xếp loại</strong>✔️
