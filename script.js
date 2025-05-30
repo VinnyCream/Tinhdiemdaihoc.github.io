@@ -2,16 +2,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const introScreen = document.getElementById('intro-screen');
     const selection55Screen = document.getElementById('selection-55-screen');
     const calculatorScreen = document.getElementById('calculator-screen');
-    const gpaIntroButton = document.getElementById('gpa-intro-btn'); 
-    const gpaSubjectCountScreen = document.getElementById('gpa-subject-count-screen'); 
-    const numSubjectsInput = document.getElementById('num-subjects'); 
-    const generateGpaInputsButton = document.getElementById('generate-gpa-inputs-btn'); 
-    const gpaCalculatorScreen = document.getElementById('gpa-calculator-screen'); 
-    const gpaInputsContainer = document.getElementById('gpa-inputs-container'); 
-    const calculateGpaButton = document.getElementById('calculate-gpa-btn'); 
-    const gpaResultDiv = document.getElementById('gpa-result'); 
-    const resetGpaButton = document.getElementById('reset-gpa-btn'); 
-    const backToGpaCountButton = document.getElementById('back-to-gpa-count-btn'); 
+    const gpaIntroButton = document.getElementById('gpa-intro-btn');    
+    const gpaSubjectCountScreen = document.getElementById('gpa-subject-count-screen');    
+    const numSubjectsInput = document.getElementById('num-subjects');    
+    const generateGpaInputsButton = document.getElementById('generate-gpa-inputs-btn');    
+    const gpaCalculatorScreen = document.getElementById('gpa-calculator-screen');    
+    const gpaInputsContainer = document.getElementById('gpa-inputs-container');    
+    const calculateGpaButton = document.getElementById('calculate-gpa-btn');    
+    const gpaResultDiv = document.getElementById('gpa-result');    
+    const resetGpaButton = document.getElementById('reset-gpa-btn');    
+    const backToGpaCountButton = document.getElementById('back-to-gpa-count-btn');    
 
     const introButtons = introScreen.querySelectorAll('.btn');
     const selection55Buttons = selection55Screen.querySelectorAll('.btn');
@@ -38,17 +38,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const calculateButton = calculatorScreen.querySelector('.calculate-btn');
     const resultDiv = document.getElementById('result');
     const resetButton = calculatorScreen.querySelector('.reset-btn');
-    const backButtons = document.querySelectorAll('.back-btn'); 
+    const backButtons = document.querySelectorAll('.back-btn');    
 
-    let currentWeighting = null; 
-    let numSubjects = 0; 
+    let currentWeighting = null;    
+    let numSubjects = 0;    
 
     function showScreen(screenToShow) {
-        const screens = [introScreen, selection55Screen, calculatorScreen, gpaSubjectCountScreen, gpaCalculatorScreen]; 
+        const screens = [introScreen, selection55Screen, calculatorScreen, gpaSubjectCountScreen, gpaCalculatorScreen];    
         screens.forEach(screen => {
             screen.style.display = 'none';
         });
-        screenToShow.style.display = 'block'; 
+        screenToShow.style.display = 'block';    
     }
 
     function setupCalculatorScreen(weightingType) {
@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         showScreen(calculatorScreen);
-        resetCalculator(); 
+        resetCalculator();    
     }
 
 
@@ -81,25 +81,26 @@ document.addEventListener('DOMContentLoaded', () => {
             input.value = '';
         });
 
-        resultDiv.innerHTML = ''; 
-        resultDiv.className = 'result'; 
-        resultDiv.style.color = ''; 
-        resultDiv.style.backgroundColor = ''; 
-        resultDiv.style.border = ''; 
+        resultDiv.innerHTML = '';    
+        resultDiv.className = 'result';    
+        resultDiv.style.color = '';    
+        resultDiv.style.backgroundColor = '';    
+        resultDiv.style.border = '';    
     }
 
 
-     function resetGpaCalculator() {
-        gpaInputsContainer.innerHTML = ''; // Xóa tất cả inputs động
-        gpaResultDiv.innerHTML = ''; // Xóa kết quả GPA
-        gpaResultDiv.className = 'result'; // Reset class
-        gpaResultDiv.style.color = ''; // Xóa style màu lỗi nếu có
-        gpaResultDiv.style.backgroundColor = ''; // Xóa màu nền
-        gpaResultDiv.style.border = ''; // Xóa border
-        numSubjectsInput.value = '1'; // Đặt lại số môn về 1
+      function resetGpaCalculator() {
+        gpaInputsContainer.innerHTML = ''; 
+        gpaResultDiv.innerHTML = ''; 
+        gpaResultDiv.className = 'result'; 
+        gpaResultDiv.style.color = ''; 
+        gpaResultDiv.style.backgroundColor = ''; 
+        gpaResultDiv.style.border = ''; 
+        numSubjectsInput.value = '1'; 
     }
 
 
+    // Hàm convertToGrades đã được sửa
     function convertToGrades(score10) {
         let range10, score4, letter;
 
@@ -107,35 +108,35 @@ document.addEventListener('DOMContentLoaded', () => {
             range10 = '9.5 - 10';
             score4 = 4.0;
             letter = 'A+';
-        } else if (score10 >= 8.5 && score10 <= 9.4) {
-             range10 = '8.5 - 9.4';
-             score4 = 4.0;
-             letter = 'A';
-        } else if (score10 >= 8.0 && score10 <= 8.4) {
+        } else if (score10 >= 8.5 && score10 < 9.5) { // Đã sửa: < 9.5 thay vì <= 9.4
+            range10 = '8.5 - 9.4';
+            score4 = 4.0;
+            letter = 'A';
+        } else if (score10 >= 8.0 && score10 < 8.5) { // Đã sửa: < 8.5 thay vì <= 8.4
             range10 = '8.0 - 8.4';
             score4 = 3.5;
             letter = 'B+';
-        } else if (score10 >= 7.0 && score10 <= 7.9) {
+        } else if (score10 >= 7.0 && score10 < 8.0) { // Đã sửa: < 8.0 thay vì <= 7.9
             range10 = '7.0 - 7.9';
             score4 = 3.0;
             letter = 'B';
-        } else if (score10 >= 6.0 && score10 <= 6.9) {
+        } else if (score10 >= 6.0 && score10 < 7.0) { // Đã sửa: < 7.0 thay vì <= 6.9
             range10 = '6.0 - 6.9';
             score4 = 2.5;
             letter = 'C+';
-        } else if (score10 >= 5.5 && score10 <= 5.9) {
+        } else if (score10 >= 5.5 && score10 < 6.0) { // Đã sửa: < 6.0 thay vì <= 5.9
             range10 = '5.5 - 5.9';
             score4 = 2.0;
             letter = 'C';
-        } else if (score10 >= 5.0 && score10 <= 5.4) {
+        } else if (score10 >= 5.0 && score10 < 5.5) { // Đã sửa: < 5.5 thay vì <= 5.4
             range10 = '5.0 - 5.4';
             score4 = 1.5;
             letter = 'D+';
-        } else if (score10 >= 4.0 && score10 <= 4.9) {
+        } else if (score10 >= 4.0 && score10 < 5.0) { // Đã sửa: < 5.0 thay vì <= 4.9
             range10 = '4.0 - 4.9';
             score4 = 1.0;
             letter = 'D';
-        } else { 
+        } else { // Mọi điểm dưới 4.0
             range10 = '0 - 3.9';
             score4 = 0;
             letter = 'F';
@@ -148,11 +149,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Hàm tính điểm môn học phần ---
     function calculateScore() {
         let diemTong = 0;
-        let inputsValid = true; // Cờ kiểm tra input hợp lệ
+        let inputsValid = true;
 
         const getAndValidateInput = (inputElement) => {
             const value = parseFloat(inputElement.value);
-            if (isNaN(value) || value < 0 || value > 10) {
+            
+            if (isNaN(value) || value < parseFloat(inputElement.min) || value > parseFloat(inputElement.max)) {
                 inputsValid = false;
                 return null;
             }
@@ -169,19 +171,19 @@ document.addEventListener('DOMContentLoaded', () => {
             const diemLT = getAndValidateInput(diemLyThuyet);
             const diemTH = getAndValidateInput(diemThucHanh);
             const diemCK = getAndValidateInput(diemCuoiKy235);
-             if (inputsValid) {
+              if (inputsValid) {
                 diemTong = (diemLT * 0.2) + (diemTH * 0.3) + (diemCK * 0.5);
             }
         } else if (currentWeighting === '4:6') {
             const diemQT = getAndValidateInput(diemQuaTrinh46);
             const diemCK = getAndValidateInput(diemCuoiKy46);
-             if (inputsValid) {
+              if (inputsValid) {
                 diemTong = (diemQT * 0.4) + (diemCK * 0.6);
             }
         } else if (currentWeighting === '3:7') {
             const diemQT = getAndValidateInput(diemQuaTrinh37);
             const diemCK = getAndValidateInput(diemCuoiKy37);
-             if (inputsValid) {
+              if (inputsValid) {
                 diemTong = (diemQT * 0.3) + (diemCK * 0.7);
             }
         }
@@ -192,14 +194,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (!inputsValid) {
             resultDiv.innerHTML = '<p style="color: red;">Vui lòng nhập điểm hợp lệ từ 0 đến 10 cho tất cả các trường.</p>'; // Dùng innerHTML
-            resultDiv.classList.remove('dau', 'rot'); 
-             resultDiv.style.backgroundColor = ''; 
-             resultDiv.style.border = ''; 
+            resultDiv.classList.remove('dau', 'rot');    
+              resultDiv.style.backgroundColor = '';    
+              resultDiv.style.border = '';    
         } else {
             // Làm tròn điểm tổng đến 2 chữ số thập phân
             diemTong = Math.round(diemTong * 100) / 100;
 
-            // --- Chuyển đổi sang các hệ điểm khác ---
             const grades = convertToGrades(diemTong);
 
             // Xác định trạng thái Qua môn / Rớt môn và màu sắc chữ
@@ -212,26 +213,26 @@ document.addEventListener('DOMContentLoaded', () => {
                 <p><strong>Điểm Chữ:</strong> ${grades.letter}</p>
             `;
 
-            if (grades.letter === 'F') {
-                 resultDiv.classList.add('rot');
-                 resultDiv.classList.remove('dau');
-            } else {
-                 resultDiv.classList.add('dau');
-                 resultDiv.classList.remove('rot');
+            if (diemTong < 4) { // Điều kiện rớt môn
+                resultDiv.classList.add('rot');
+                resultDiv.classList.remove('dau');
+            } else { // Điều kiện qua môn
+                resultDiv.classList.add('dau');
+                resultDiv.classList.remove('rot');
             }
 
-             resultDiv.style.color = ''; 
+              resultDiv.style.color = '';    
         }
     }
 
     // --- Hàm tạo input cho GPA ---
     function generateGpaInputs(numberOfSubjects) {
-        gpaInputsContainer.innerHTML = ''; 
-        if (numberOfSubjects <= 0) return; 
+        gpaInputsContainer.innerHTML = '';    
+        if (numberOfSubjects <= 0) return;    
 
         for (let i = 1; i <= numberOfSubjects; i++) {
             const subjectDiv = document.createElement('div');
-            subjectDiv.classList.add('gpa-subject-inputs'); 
+            subjectDiv.classList.add('gpa-subject-inputs');    
 
             subjectDiv.innerHTML = `
                 <label>Môn ${i}:</label>
@@ -246,49 +247,50 @@ document.addEventListener('DOMContentLoaded', () => {
         const scoreInputs = gpaInputsContainer.querySelectorAll('.score-input');
         const creditInputs = gpaInputsContainer.querySelectorAll('.credit-input');
 
-        let totalScoreCreditsSum = 0; 
-        let totalCreditsSum = 0; 
-        let passedScoreCreditsSum = 0; 
-        let passedCreditsSum = 0; 
-        let totalPassedCredits = 0; 
-        let totalFailedCredits = 0; 
-        let allInputsFilled = true; 
+        let totalScoreCreditsSum = 0;    
+        let totalCreditsSum = 0;    
+        let passedScoreCreditsSum = 0;    
+        let passedCreditsSum = 0;    
+        let totalPassedCredits = 0;    
+        let totalFailedCredits = 0;    
+        let allInputsFilled = true;    
 
         for (let i = 0; i < scoreInputs.length; i++) {
             const score = parseFloat(scoreInputs[i].value);
             const credits = parseFloat(creditInputs[i].value);
 
+            // Kiểm tra giá trị nhập vào cho điểm và tín chỉ
             if (isNaN(score) || score < 0 || score > 4 || isNaN(credits) || credits <= 0) {
                 allInputsFilled = false;
-                break; 
+                break;    
             }
 
-            // Tính tổng cho Điểm trung bình học kỳ
+            // Tính tổng cho Điểm trung bình học kỳ (GPA học kỳ)
             totalScoreCreditsSum += score * credits;
             totalCreditsSum += credits;
 
-            // Tính tổng cho Điểm trung bình tích lũy (chỉ môn đậu)
-            if (score > 0) { // Điều kiện đậu môn là Điểm 4 > 0
+            if (score > 0) { 
                 passedScoreCreditsSum += score * credits;
                 passedCreditsSum += credits;
                 totalPassedCredits += credits; // Cộng tín chỉ đạt
             } else {
-                 totalFailedCredits += credits; // Cộng tín chỉ không đạt (điểm 4 = 0)
+                totalFailedCredits += credits; // Cộng tín chỉ không đạt (điểm 4 = 0)
             }
         }
 
-        gpaResultDiv.className = 'result'; 
-        gpaResultDiv.style.color = ''; 
-        gpaResultDiv.style.backgroundColor = ''; 
-        gpaResultDiv.style.border = ''; 
+        gpaResultDiv.className = 'result';    
+        gpaResultDiv.style.color = '';    
+        gpaResultDiv.style.backgroundColor = '';    
+        gpaResultDiv.style.border = '';    
 
         if (!allInputsFilled) {
             gpaResultDiv.innerHTML = '<p style="color: red;">Vui lòng nhập điểm thang 4 (0-4) và tín chỉ hợp lệ (>0) cho tất cả các môn.</p>';
-             gpaResultDiv.classList.remove('dau', 'rot');
+              gpaResultDiv.classList.remove('dau', 'rot');
         } else {
             // Tính Điểm trung bình học kỳ
             const semesterGpa = totalCreditsSum > 0 ? totalScoreCreditsSum / totalCreditsSum : 0;
 
+            // Điểm trung bình tích lũy (chỉ cho học kỳ này và các môn đậu)
             const cumulativeGpa = passedCreditsSum > 0 ? passedScoreCreditsSum / passedCreditsSum : 0;
 
 
@@ -318,21 +320,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 gpaResultDiv.style.backgroundColor = '#d4edda'; // Nền xanh nhạt
                 gpaResultDiv.style.border = '1px solid #c3e6cb';
             } else if (roundedSemesterGpa >= 1.0) { // Trung bình, Yếu
-                 gpaResultDiv.classList.remove('dau', 'rot');
-                 gpaResultDiv.style.backgroundColor = '#fff3cd'; // Nền vàng nhạt
-                 gpaResultDiv.style.border = '1px solid #ffeeba';
-                 gpaResultDiv.style.color = '#856404'; // Chữ màu vàng đậm
+                  gpaResultDiv.classList.remove('dau', 'rot');
+                  gpaResultDiv.style.backgroundColor = '#fff3cd'; // Nền vàng nhạt
+                  gpaResultDiv.style.border = '1px solid #ffeeba';
+                  gpaResultDiv.style.color = '#856404'; // Chữ màu vàng đậm
             }
             else { // Kém
                 gpaResultDiv.classList.add('rot'); // Tái sử dụng class 'rot' cho nền đỏ
-                 gpaResultDiv.classList.remove('dau');
-                 gpaResultDiv.style.backgroundColor = '#f8d7da'; // Nền đỏ nhạt
-                 gpaResultDiv.style.border = '1px solid #f5c6cb';
+                  gpaResultDiv.classList.remove('dau');
+                  gpaResultDiv.style.backgroundColor = '#f8d7da'; // Nền đỏ nhạt
+                  gpaResultDiv.style.border = '1px solid #f5c6cb';
             }
-             // Đảm bảo màu chữ cho kết quả hiển thị rõ ràng trên nền
-             if (gpaResultDiv.style.color === '') { // Nếu chưa đặt màu chữ (ví dụ ở nền vàng)
+              // Đảm bảo màu chữ cho kết quả hiển thị rõ ràng trên nền
+              if (gpaResultDiv.style.color === '') { // Nếu chưa đặt màu chữ (ví dụ ở nền vàng)
                   gpaResultDiv.style.color = 'black'; // Đặt màu chữ đen mặc định
-             }
+              }
 
 
             // Hiển thị kết quả GPA
@@ -360,7 +362,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Nút chọn hệ điểm con cho 5:5 (Chuẩn, 2:3:5)
     selection55Buttons.forEach(button => {
         if (!button.classList.contains('back-btn')) {
             button.addEventListener('click', () => {
@@ -378,8 +379,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Nút mới: Tính GPA của học kỳ
     gpaIntroButton.addEventListener('click', () => {
-        resetGpaCalculator(); // Reset màn hình GPA khi bắt đầu
-        showScreen(gpaSubjectCountScreen); // Chuyển sang màn hình nhập số môn
+        resetGpaCalculator(); 
+        showScreen(gpaSubjectCountScreen); 
     });
 
     // Nút Tiếp theo (tạo input GPA)
@@ -387,12 +388,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const enteredNumSubjects = parseInt(numSubjectsInput.value);
         if (isNaN(enteredNumSubjects) || enteredNumSubjects <= 0) {
             alert('Vui lòng nhập số lượng môn hợp lệ (lớn hơn 0).');
-            numSubjectsInput.value = '1'; // Reset về 1 nếu nhập không hợp lệ
+            numSubjectsInput.value = '1'; 
             return;
         }
         numSubjects = enteredNumSubjects; // Lưu lại số môn
-        generateGpaInputs(numSubjects); // Tạo các trường input động
-        showScreen(gpaCalculatorScreen); // Chuyển sang màn hình tính GPA
+        generateGpaInputs(numSubjects); 
+        showScreen(gpaCalculatorScreen); 
     });
 
     // Nút Tính GPA
@@ -400,7 +401,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Nút Reset GPA
     resetGpaButton.addEventListener('click', () => {
-        // Chỉ cần xóa inputs và kết quả, giữ nguyên số lượng môn
+        
         gpaInputsContainer.innerHTML = '';
         gpaResultDiv.innerHTML = '';
         gpaResultDiv.className = 'result';
@@ -409,35 +410,28 @@ document.addEventListener('DOMContentLoaded', () => {
         gpaResultDiv.style.border = '';
     });
 
-    // Nút Quay trở về (xử lý chung cho tất cả các nút back)
     backButtons.forEach(button => {
         button.addEventListener('click', () => {
-            // Xác định màn hình hiện tại để quay về màn hình trước đó
             if (gpaCalculatorScreen.style.display === 'block') {
-                 // Nếu đang ở màn hình tính GPA, quay về màn hình nhập số môn
-                 resetGpaCalculator(); // Reset màn hình GPA khi quay lại
-                 showScreen(gpaSubjectCountScreen);
+                   resetGpaCalculator(); 
+                   showScreen(gpaSubjectCountScreen);
             } else if (gpaSubjectCountScreen.style.display === 'block') {
-                 // Nếu đang ở màn hình nhập số môn GPA, quay về màn hình giới thiệu
-                 resetGpaCalculator(); // Reset màn hình nhập số môn
-                 showScreen(introScreen);
+                   resetGpaCalculator(); 
+                   showScreen(introScreen);
             }
             else if (selection55Screen.style.display === 'block') {
-                // Nếu đang ở màn hình chọn 5:5, quay về màn hình giới thiệu
                 showScreen(introScreen);
             }
-             else if (calculatorScreen.style.display === 'block') {
-                 // Nếu đang ở màn hình tính môn học phần, quay về màn hình giới thiệu
-                 resetCalculator(); // Reset màn hình tính môn học phần khi quay lại
-                 showScreen(introScreen);
-             }
+              else if (calculatorScreen.style.display === 'block') {
+                   
+                   resetCalculator(); 
+                   showScreen(introScreen);
+              }
         });
     });
-
-    // Ngăn chặn menu chuột phải xuất hiện mà không hiển thị thông báo
+    
 document.addEventListener('contextmenu', (event) => {
-    event.preventDefault(); // Chỉ ngăn chặn hành động mặc định
+    event.preventDefault(); 
 });
-
     showScreen(introScreen);
 });
